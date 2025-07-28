@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Tanggal dan Jam Otomatis</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      font-size: 28px;
+      color: #0b5394;
+      background-color: #e6f2ff;
+      text-align: center;
+      padding: 40px;
+      margin: 0;
+    }
+    #datetime {
+      margin-top: 20px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <h1>Tanggal dan Jam Sekarang</h1>
+  <div id="datetime">Memuat...</div>
+
+  <script>
+    function updateDateTime() {
+      const now = new Date();
+      const options = {
+        weekday: 'long',
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric',
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit'
+      };
+      document.getElementById('datetime').innerHTML = now.toLocaleString('id-ID', options);
+    }
+
+    setInterval(updateDateTime, 1000);
+    updateDateTime();
+  </script>
+</body>
+</html>
